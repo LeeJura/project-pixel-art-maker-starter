@@ -1,10 +1,19 @@
 // Select color input
 
 // Select size input
-const box = $("<tr><td></td></tr>");
+const gridHeight = 2;
+const gridWidth = 1;
+
+const box = $("<tbody></tbody>").appendTo("#pixel_canvas");
 
 function createBox() {
-    $(box).appendTo("#pixel_canvas");
+    for (let i = 0; i < gridHeight; i++) {
+        $("<tr></tr>").appendTo("tbody");
+    }
+
+    for (let i = 0; i < gridWidth; i++) {
+        $("<td></td>").appendTo("tr");
+    }
 };
 
 $("#sizePickerButton").click(function() {
