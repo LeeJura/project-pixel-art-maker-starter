@@ -1,32 +1,37 @@
 // Select color input
 
 // Select size input
-const gridHeight = 2;
-const gridWidth = 1;
+const gridHeight = $("#input_height");
+const gridWidth = $("#input_width");
 
-const box = $("<tbody></tbody>").appendTo("#pixel_canvas");
+function createBody() {
+    $("<tbody></tbody>").appendTo("#pixel_canvas");
+}
 
-function createBox() {
-    for (let i = 0; i < gridHeight; i++) {
+function removeBody() {
+    $("#pixel_canva").empty();
+}
+
+function createRow() {
+    for (let i = 1; i <= gridHeight.val(); i++) {
         $("<tr></tr>").appendTo("tbody");
-    }
+    };
+}
 
-    for (let i = 0; i < gridWidth; i++) {
+function createColumn() {
+    for (let i = 1; i <= gridWidth.val(); i++) {
         $("<td></td>").appendTo("tr");
-    }
-};
-
-$("#sizePickerButton").click(function() {
-    createBox();
-    return false;
-    console.log("event clicked");
-});
-
-
+    };
+}
 // When size is submitted by the user, call makeGrid()
 
 function makeGrid() {
-
-
-
+    createBody();
+    createRow();
+    createColumn();
 }
+
+$("#sizePickerButton").click(function() {
+    makeGrid();
+    return false;
+});
