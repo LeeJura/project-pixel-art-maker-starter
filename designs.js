@@ -1,7 +1,7 @@
-// TODO: Select color input
+// Select color input
 colorInput = $("#colorPicker");
 
-// TODO: Select size input
+// Select size input
 
 const gridHeight = $("#input_height");
 const gridWidth = $("#input_width");
@@ -43,13 +43,13 @@ function removeBody() {
     $("tbody").remove();
 };
 
-// TODO: When size is submitted by the user, call makeGrid()
-$("#sizePickerButton").click(function() {
+// When size is submitted by the user, call makeGrid()
+$("#sizePickerButton").click(function(event) {
     makeGrid();
-    return false;
+    event.preventDefault()
 })
 
-//TODO: Change color of a grid cell to color picker
+// Change color of a grid cell to color picker
 $("#pixel_canvas").on("click", ".column", function(event) {
     $(event.currentTarget).css("background-color", colorInput.val());
 })
